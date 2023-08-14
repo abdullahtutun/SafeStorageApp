@@ -1,4 +1,4 @@
-package com.abdullahtutun.safestorage.ui.theme
+package com.abdullahtutun.safestorage.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
