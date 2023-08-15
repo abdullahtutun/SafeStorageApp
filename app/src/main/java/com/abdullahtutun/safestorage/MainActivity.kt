@@ -1,6 +1,8 @@
 package com.abdullahtutun.safestorage
 
+import android.content.Context
 import android.os.Bundle
+import android.os.Environment
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
@@ -12,6 +14,7 @@ import com.abdullahtutun.safestorage.presentation.folder.FolderScreen
 import com.abdullahtutun.safestorage.presentation.folder_list.FolderListScreen
 import com.abdullahtutun.safestorage.presentation.ui.theme.SafeStorageTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -37,5 +40,15 @@ class MainActivity : ComponentActivity() {
         }
 
 
+    }
+
+    fun createFile(context: Context, folderName: String) {
+        val appFolderPath = Environment.getExternalStorageDirectory().absolutePath + "/SafeStorages/"
+        val folderPath = "$appFolderPath$folderName/"
+
+        val folder = File(folderPath)
+        if (!folder.exists()) {
+            folder.mkdirs()
+        }
     }
 }
